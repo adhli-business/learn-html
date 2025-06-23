@@ -27,7 +27,7 @@
             text-align: center;
         }
 
-        .profile-container img {
+        .profile-container img.profile-pic {
             width: 150px;
             height: 150px;
             border-radius: 50%;
@@ -47,12 +47,7 @@
             color: #555;
         }
 
-        button a {
-            text-decoration: none;
-            color: white;
-        }
-
-        button {
+        .linkedin-button {
             background: #0077b5;
             border: none;
             padding: 10px 20px;
@@ -62,35 +57,75 @@
             cursor: pointer;
             transition: background 0.3s ease;
             margin-top: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
         }
 
-        button:hover {
+        .linkedin-button:hover {
             background: #005b8a;
         }
 
-        ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 20px 0;
+        .linkedin-button svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
         }
 
-        ul li {
-            padding: 5px 0;
+        .hobbies {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
         }
 
-        form {
+        .hobby-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100px;
+            margin: 10px;
+        }
+
+        .hobby-item img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 8px;
+        }
+
+        .contact-form {
             margin-top: 15px;
+            width: 80%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
 
-        input[type="email"],
-        input[type="text"] {
+        .contact-form input[type="email"],
+        .contact-form input[type="text"] {
             padding: 10px;
             border-radius: 5px;
             border: 1px solid #ccc;
             font-size: 1em;
+        }
+
+        .contact-form button {
+            background: #28a745;
+            border: none;
+            padding: 10px;
+            color: white;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background: #1e7e34;
         }
 
         iframe {
@@ -103,7 +138,7 @@
 
 <body>
     <div class="profile-container">
-        <img src="assets/foto-adhli.webp" alt="Adhli's Profile Picture" />
+        <img class="profile-pic" src="assets/foto-adhli.webp" alt="Adhli's Profile Picture" />
 
         <h1>Hello, I'm Putra Adhli Falah!</h1>
         <p>
@@ -112,27 +147,44 @@
             visualization, and solving problems through analytics.
         </p>
 
-        <button>
-            <a href="https://id.linkedin.com/in/putra-adhli-falah" target="_blank">Go to LinkedIn</a>
-        </button>
+        <a class="linkedin-button" href="https://id.linkedin.com/in/putra-adhli-falah" target="_blank">
+            <!-- LinkedIn SVG icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 34">
+                <path
+                    d="M34,20.2v13.3h-7.8V20.9c0-3.4-1.2-5.8-4.3-5.8c-2.3,0-3.7,1.5-4.3,2.9c-0.2,0.5-0.2,1.1-0.2,1.7v13.7H9.7c0,0,0.1-22.3,0-24.6h7.8v3.5c-0.01,0.01-0.03,0.02-0.04,0.03h0.04v-0.03c1-1.5,2.8-3.6,6.8-3.6C30.4,8.6,34,12.1,34,20.2z M4,0.6C1.8,0.6,0,2.4,0,4.6c0,2.1,1.8,3.9,4,3.9s4-1.7,4-3.9C8,2.4,6.2,0.6,4,0.6z M0.5,33.5H7.5V8.9H0.5V33.5z" />
+            </svg>
+            LinkedIn
+        </a>
 
         <h2>My hobbies are:</h2>
-        <ul>
-            <li>Eat</li>
-            <li>Sleep</li>
-            <li>Code</li>
-            <li>Repeat</li>
-        </ul>
+        <div class="hobbies">
+            <div class="hobby-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="Eat" />
+                <span>Eat</span>
+            </div>
+            <div class="hobby-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/869/869636.png" alt="Sleep" />
+                <span>Sleep</span>
+            </div>
+            <div class="hobby-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/2721/2721290.png" alt="Code" />
+                <span>Code</span>
+            </div>
+            <div class="hobby-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/61/61456.png" alt="Repeat" />
+                <span>Repeat</span>
+            </div>
+        </div>
 
         <h2>Contact me:</h2>
-        <form>
+        <form class="contact-form">
             <label for="email">Your email</label>
             <input type="email" name="email" placeholder="please input your email" required />
 
             <label for="message">Your message</label>
-            <input type="text" name="message" placeholder="input your message here" required />
+            <textarea name="message" rows="5" placeholder="input your message here" required></textarea>
 
-            <button>Send</button>
+            <button type="submit">Send</button>
         </form>
 
         <h2>My Favorite YouTube Video</h2>
