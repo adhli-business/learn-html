@@ -1,11 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Portfolio | Adhli</title>
+    <link rel="stylesheet" href="stylePortfolio.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
-    
+    <!-- Ini Navbar -->
+    <div class="navbar-container" id="myTopnav">
+        <a href="#works">Works</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
+    <!-- Ini Jumbotron -->
+    <div class="jumbotron-container">
+        <div style="width: 50%;">
+            <h1>Hi, I am Adhli, <br> Front End Enthusiast</h1>
+            <p>I have a strong passion for crafting intuitive web experiences and
+                deriving insights from data. I love exploring Web UI, data
+                visualization, and solving problems through analytics.</p>
+            <p>Hobby</p>
+            <ul>
+                <li>Eat</li>
+                <li>Sleep</li>
+                <li>Code</li>
+                <li>Repeat</li>
+            </ul>
+            <button type="button" onclick="alert('Anda berhasil mendownload')" class="download-button">Download
+                Resume</button>
+        </div>
+        <div style="width: 50%; text-align: center;">
+            <img src="../assets/foto-adhli.webp" alt="Foto Adhli" class="foto-adhli">
+        </div>
+    </div>
+
+    <!-- Ini Recent Post -->
+    <div class="post-container" id="blog">
+        <div class="title-post" style="display: flex;">
+            <div>
+                <p style="font-size: large;">Recent posts</p>
+            </div>
+
+            <div>
+                <a href="https://www.instagram.com/adhli.falah/"
+                    style="color: rgb(47, 164, 254); text-decoration: none;" target="_blank">View All</a>
+            </div>
+        </div>
+
+        <div class="card-post" style="display: flex;">
+            <div class="card-content">
+                <h3>Making a design system from scratch</h3>
+                <div style="display: flex; gap: 10px;">
+                    <p>12 Feb 2020</p>
+                    <p>|</p>
+                    <p>Design, Pattern</p>
+                </div>
+                <p style="font-size: small;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto adipisci
+                    magni nulla reprehenderit
+                    obcaecati id iure voluptatum harum aliquam illo, suscipit consectetur quibusdam, quia ad facilis
+                    voluptates temporibus delectus perferendis.</p>
+            </div>
+            <div class="card-content">
+                <h3>Creating pixel perfects icons in Figma</h3>
+                <div style="display: flex; gap: 10px;">
+                    <p>12 Feb 2020</p>
+                    <p>|</p>
+                    <p>Figma, Icon Design</p>
+                </div>
+                <p style="font-size: small;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto adipisci
+                    magni nulla reprehenderit
+                    obcaecati id iure voluptatum harum aliquam illo, suscipit consectetur quibusdam, quia ad facilis
+                    voluptates temporibus delectus perferendis.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ini Featured Works -->
+    <div class="works-container" id="works">
+        <div class="title-works">
+            <p style="font-size: large; margin-bottom: 30px;">Featured works</p>
+        </div>
+
+        <div class="section-works"
+            style="display: flex; border-bottom: 1px solid rgb(211, 211, 211); padding-bottom: 30px;">
+            <div>
+                <img src="../assets/jepang.jpg" alt="" style="width: 250px; border-radius: 10px; margin-right: 10px;">
+            </div>
+
+            <div class="content-works">
+                <h3>Designing Dashboards</h3>
+                <div class="year-btn" style="display: flex;">
+                    <button class="button-tahun" style="margin-right: 20px;">2020</button>
+                    <p style="color: grey;">Dashboard</p>
+                </div>
+                <p style="width: fit-content;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias iure
+                    nesciunt molestiae ipsa
+                    repellat inventore, enim minima reiciendis atque rerum distinctio, laudantium laborum assumenda
+                    pariatur commodi consectetur rem doloremque illum.</p>
+            </div>
+        </div>
+
+        <div class="section-works"
+            style="display: flex; border-bottom: 1px solid rgb(211, 211, 211); padding-bottom: 30px;">
+            <div>
+                <img src="../assets/jepang.jpg" alt="" style="width: 250px; border-radius: 10px; margin-right: 10px;">
+            </div>
+
+            <div class="content-works">
+                <h3>Designing Dashboards</h3>
+                <div class="year-btn" style="display: flex;">
+                    <button class="button-tahun" style="margin-right: 20px;">2020</button>
+                    <p style="color: grey;">Dashboard</p>
+                </div>
+                <p style="width: fit-content;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias iure
+                    nesciunt molestiae ipsa
+                    repellat inventore, enim minima reiciendis atque rerum distinctio, laudantium laborum assumenda
+                    pariatur commodi consectetur rem doloremque illum.</p>
+            </div>
+        </div>
+
+        <div class="section-works"
+            style="display: flex; border-bottom: 1px solid rgb(211, 211, 211); padding-bottom: 30px;">
+            <div>
+                <img src="../assets/jepang.jpg" alt="" style="width: 250px; border-radius: 10px; margin-right: 10px;">
+            </div>
+
+            <div class="content-works">
+                <h3>Designing Dashboards</h3>
+                <div class="year-btn" style="display: flex;">
+                    <button class="button-tahun" style="margin-right: 20px;">2020</button>
+                    <p style="color: grey;">Dashboard</p>
+                </div>
+                <p style="width: fit-content;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias iure
+                    nesciunt molestiae ipsa
+                    repellat inventore, enim minima reiciendis atque rerum distinctio, laudantium laborum assumenda
+                    pariatur commodi consectetur rem doloremque illum.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ini Contact Me -->
+
+    <div class="contact-container" id="contact">
+        <p style="font-size: large; margin-bottom: 30px;">Contact me</p>
+        <form class="contact-form" action="">
+            <div>
+                <label for="">Name:</label>
+                <input type="text" name="" id="" placeholder="input your name">
+            </div>
+            <div>
+                <label for="">Email:</label>
+                <input type="email" name="" id="" placeholder="input your email address">
+            </div>
+            <div>
+                <label for="">Message:</label>
+                <textarea name="" id="" placeholder="input your message here"></textarea>
+            </div>
+            <button>Send</button>
+        </form>
+    </div>
+
+    <!-- Ini Videotron -->
+    <div class="video-container">
+        <h2>My Favorite YouTube Video</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/mmeLCAP74KA?si=gCX3D7l5sizMdD18"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <!-- Ini footer -->
+    <div class="footer-container">
+        <div style="display: flex;">
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="https://www.instagram.com/adhli.falah/" class="fa fa-instagram"></a>
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="https://id.linkedin.com/in/putra-adhli-falah" class="fa fa-linkedin"></a>
+        </div>
+        <p>Copyright &copy;2025 All rights reserved</p>
+    </div>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.classList.contains("responsive")) {
+                x.classList.remove("responsive");
+            } else {
+                x.classList.add("responsive");
+            }
+        }
+
+    </script>
 </body>
+
 </html>
