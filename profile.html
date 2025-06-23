@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Profile | Adhli</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .profile-container img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        button a {
+            text-decoration: none;
+            color: white;
+        }
+
+        button {
+            background: #0077b5;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background: #005b8a;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        ul li {
+            padding: 5px 0;
+        }
+
+        form {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input[type="email"],
+        input[type="text"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+
+        iframe {
+            margin-top: 20px;
+            max-width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="profile-container">
+        <img src="assets/foto-adhli.webp" alt="Adhli's Profile Picture" />
+
+        <h1>Hello, I'm Putra Adhli Falah!</h1>
+        <p>
+            I have a strong passion for crafting intuitive web experiences and
+            deriving insights from data. I love exploring Web UI, data
+            visualization, and solving problems through analytics.
+        </p>
+
+        <button>
+            <a href="https://id.linkedin.com/in/putra-adhli-falah" target="_blank">Go to LinkedIn</a>
+        </button>
+
+        <h2>My hobbies are:</h2>
+        <ul>
+            <li>Eat</li>
+            <li>Sleep</li>
+            <li>Code</li>
+            <li>Repeat</li>
+        </ul>
+
+        <h2>Contact me:</h2>
+        <form>
+            <label for="email">Your email</label>
+            <input type="email" name="email" placeholder="please input your email" required />
+
+            <label for="message">Your message</label>
+            <input type="text" name="message" placeholder="input your message here" required />
+
+            <button>Send</button>
+        </form>
+
+        <h2>My Favorite YouTube Video</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/mmeLCAP74KA?si=gCX3D7l5sizMdD18"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+</body>
+
+</html>
