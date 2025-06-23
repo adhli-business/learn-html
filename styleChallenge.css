@@ -1,0 +1,50 @@
+.progress-bar {
+    background-color: grey;
+    border-radius: 5px;
+    height: 30px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-load {
+    color: white;
+    font-weight: bold;
+    background-color: red;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    border-radius: 5px 0 0 5px;
+}
+
+.progress-load p {
+    margin: 0;
+}
+
+.jepang {
+    width: 50%;
+}
+.indo {
+    width: 100%;
+}
+.swiss {
+    width: 25%;
+}
+.brazil {
+    width: 70%;
+}
+
+.grid-container {
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: 1fr 1fr; /* Dua kolom */
+    grid-template-rows: 1fr 1fr;    /* Dua baris */
+    gap: 20px;
+    padding: 40px;
+    height: 100vh;
+    box-sizing: border-box;
+}
