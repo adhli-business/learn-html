@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Data Pengajuan Leasing</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+<!-- Ini tabel pengajuan -->
+    <h2>Daftar Pengajuan Leasing</h2>
+    <table id="tabelPengajuan">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Umur</th>
+                <th>DP</th>
+                <th>Harga Motor</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data akan dimasukkan ke sini -->
+        </tbody>
+    </table>
+
+<!-- Ini tabel disetujui -->
+    <h2>Daftar Pengajuan Disetujui (Usia 21 -55)</h2>
+    <table id="tabelDisetujui">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Umur</th>
+                <th>DP</th>
+                <th>Harga Motor</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data akan dimasukkan ke sini -->
+        </tbody>
+    </table>
+
+<!-- Ini tabel Simulasi -->
+    <h2>Daftar Simulasi Cicilan Disetujui</h2>
+    <table id="tabelSimulasi">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Harga Motor</th>
+                <th>DP</th>
+                <th>Bunga</th>
+                <th>Cicilan</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data akan dimasukkan ke sini -->
+        </tbody>
+    </table>
+
+<!-- Ini script tabel pertama -->
+    <script>
+        async function tampilkanData() {
+            try {
+                const res = await fetch(
+                    "https://68598a7a138a18086dfec989.mockapi.io/dummy-fif/DummyDataUser"
+                );
+                console.log("res: ", res);
+                const data = await res.json();
+                console.log("Data: ", data);
+
+                const tbody = document.querySelector("#tabelPengajuan tbody");
+                tbody.innerHTML = ""; // kosongkan dulu
+
+                data.forEach((pengajuan, index) => {
+                    const row = `
+            <tr>
+                <td>${index + 1}</td>
+                <td>${pengajuan.name}</td>
+                <td>${pengajuan.age}</td>
+                <td>Rp ${parseInt(pengajuan.dp).toLocaleString()}</td>
+                <td>Rp ${parseInt(pengajuan.price).toLocaleString()}</td>
+            </tr>
+        `;
+                    tbody.innerHTML += row;
+                });
+            } catch (err) {
+                console.error("Gagal mengambil data:", err);
+            }
+        }
+
+        // Panggil fungsi otomatis saat halaman selesai dimuat
+        document.addEventListener("DOMContentLoaded", tampilkanData);
+    </script>
+
+<!-- Ini script tabel kedua -->
+<script>
+        async function tampilkanData() {
+            try {
+                const res = await fetch(
+                    "https://68598a7a138a18086dfec989.mockapi.io/dummy-fif/DummyDataUser"
+                );
+                console.log("res: ", res);
+                const data = await res.json();
+                console.log("Data: ", data);
+
+                const tbody = document.querySelector("#tabelDisetujui tbody");
+                tbody.innerHTML = ""; // kosongkan dulu
+
+                //Filter Data disetujui
+                const dataDisetujui = data.filter(pengajuan => {
+                    const usia = parseInt(pengajuan.age);
+                    return usia >=21 && usia <= 55;
+                })
+
+                dataDisetujui.forEach((pengajuan, index) => {
+                    const row = `
+            <tr>
+                <td>${index + 1}</td>
+                <td>${pengajuan.name}</td>
+                <td>${pengajuan.age}</td>
+                <td>Rp ${parseInt(pengajuan.dp).toLocaleString()}</td>
+                <td>Rp ${parseInt(pengajuan.price).toLocaleString()}</td>
+            </tr>
+        `;
+                    tbody.innerHTML += row;
+                });
+            } catch (err) {
+                console.error("Gagal mengambil data:", err);
+            }
+        }
+
+        // Panggil fungsi otomatis saat halaman selesai dimuat
+        document.addEventListener("DOMContentLoaded", tampilkanData);
+    </script>
+
+<!-- Ini script tabel ketiga -->
+<script>
+        async function tampilkanData() {
+            try {
+                const res = await fetch(
+                    "https://68598a7a138a18086dfec989.mockapi.io/dummy-fif/DummyDataUser"
+                );
+                console.log("res: ", res);
+                const data = await res.json();
+                console.log("Data: ", data);
+
+                const tbody = document.querySelector("#tabelSimulasi tbody");
+                tbody.innerHTML = ""; // kosongkan dulu
+
+                //Filter Data disetujui
+                const dataSimulasi = data.filter(pengajuan => {
+                    const usia = parseInt(pengajuan.age);
+                    return usia >=21 && usia <= 55;
+                })
+
+                dataSimulasi.forEach((pengajuan, index) => {
+                // DP 30%
+                const uangMuka = parseInt(pengajuan.price*0.3);
+                // Hitungan Cicilan Bulanan
+                //pinjaman = harga motor - dp
+                const pinjaman = parseInt(pengajuan.price) - uangMuka;
+                //Bunga 10%
+                const bungaSepuluh = pinjaman*0.1;
+                //total pembayaran = pinjaman + bunga
+                const totalPembayaran = pinjaman + bungaSepuluh;
+                const tenor = 12;
+                //cicilan bulanan = total pembayaran / tenor
+                const cicilanBulanan = totalPembayaran / tenor;
+
+                    const row = `
+            <tr>
+                <td>${index + 1}</td>
+                <td>${pengajuan.name}</td>
+                <td>Rp ${parseInt(pengajuan.price).toLocaleString()}</td>
+                <td>Rp ${parseInt(uangMuka)}</td>
+                <td>Rp ${parseInt(Math.round(bungaSepuluh))}</td>
+                <td>Rp ${parseInt(Math.round(cicilanBulanan))}</td>
+            </tr>
+        `;
+                    tbody.innerHTML += row;
+                });
+            } catch (err) {
+                console.error("Gagal mengambil data:", err);
+            }
+        }
+
+        // Panggil fungsi otomatis saat halaman selesai dimuat
+        document.addEventListener("DOMContentLoaded", tampilkanData);
+    </script>
+</body>
+
+</html>
