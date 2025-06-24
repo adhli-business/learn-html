@@ -56,3 +56,8 @@ console.log(age >= 18 && age<=55 ?
     "legal" 
     : age > 56 ? "not legal" 
         : "undefined age");
+
+// let input;
+// while (input !== 'exit') {
+//     input = prompt("Type something (or exit to quit):");
+// }
