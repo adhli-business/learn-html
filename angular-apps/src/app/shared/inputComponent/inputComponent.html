@@ -1,0 +1,44 @@
+<h2>Input Forms (Child Component Input)</h2>
+
+<form [formGroup]="userForm" (ngSubmit)="submit()">
+    <div class="formName">
+        <label for="name">
+            Name:
+            <input type="text" formControlName="name" />
+        </label>
+        <div *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched">
+            Please fill your name
+        </div>
+        <div *ngIf="userForm.get('name')?.errors?.['minlength']">
+            Nama harus minimal 3
+        </div>
+    </div>
+
+    <div class="formAge">
+        <label for="age">
+            Age:
+            <input type="text" formControlName="age" />
+        </label>
+        <div *ngIf="userForm.get('age')?.invalid && userForm.get('age')?.touched">
+            Please fill your age
+        </div>
+        <div *ngIf="userForm.get('age')?.errors?.['age']">
+            Harus format age
+        </div>
+    </div>
+
+    <div class="formJob">
+        <label for="job">
+            Job:
+            <input type="text" formControlName="job" />
+        </label>
+        <div *ngIf="userForm.get('job')?.invalid && userForm.get('job')?.touched">
+            Please fill your Job
+        </div>
+        <div *ngIf="userForm.get('job')?.errors?.['job']">
+            Harus format Job
+        </div>
+    </div>
+    <button type="submit" [disabled]="userForm.invalid">Tambah kreditur baru</button>
+</form>
+

@@ -1,0 +1,27 @@
+<h2>Daftar Pengajuan Leasing (Child Component Table)</h2>
+<table border="1" [cellPadding]="10" [cellSpacing]="0">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Umur</th>
+            <th>Pekerjaan</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of childrenData; let i = index">
+            <td align="center">{{i+1}}</td>
+            <td>{{item.name}}</td>
+            <td align="center">{{item.age}}</td>
+            <td>{{item.job}}</td>
+            <td align="center">
+                <button (click)="hapusData(i)" class="btn-delete" title="Hapus">
+                    🗑️
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- <button (click)="kirimData()">Ganti Nama</button> -->
