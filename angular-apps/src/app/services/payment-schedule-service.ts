@@ -23,6 +23,13 @@ export class PaymentScheduleService {
           this.notifier.notify(`Auto-debit untuk ${Kreditur.name} jatuh tempo hari ini!`);
         }
       });
-    }, 15*1000);
+    }, 5*1000);
   }
+
+    calculateDueDate(tanggalPengajuan: Date | string): Date {
+    const tanggal = new Date(tanggalPengajuan);
+    tanggal.setDate(tanggal.getDate() + 30); // misalnya jatuh tempo = 30 hari kemudian
+    return tanggal;
+  }
+
 }

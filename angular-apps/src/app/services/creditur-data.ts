@@ -27,7 +27,7 @@ export class CrediturData {
       "age": 9,
       "job": "Senior Response Assistant",
       "tanggalPengajuan": new Date('2025-05-26'),
-      "dueDate": new Date('2025-06-26')
+      "dueDate": new Date('2025-06-25')
     }
   ];
 

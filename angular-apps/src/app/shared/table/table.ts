@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
 })
 export class Table {
   @Input() childrenData: Creditur[] = []
-  @Output() hapusEvent = new EventEmitter<number>();
+  @Output() hapusEvent = new EventEmitter<string>();
   @Output() dueClicked = new EventEmitter<Creditur>();
 
   onDueClick(item: Creditur) {
@@ -23,7 +23,8 @@ export class Table {
     return today === d;
   }
 
-  hapusData(index: number) {
+  hapusData(index: string) {
+    console.log('ppp', index)
     this.hapusEvent.emit(index);
   }
 }

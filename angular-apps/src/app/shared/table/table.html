@@ -21,8 +21,8 @@
             <td align="center">
                 {{ item.dueDate | date:'dd MMMM yyyy' }}
             </td>
-            <td align="center">
-                <button (click)="hapusData(i)" class="btn-delete" title="Hapus">
+            <td align="center" *ngIf="item.id">
+                <button (click)="hapusData(item.id)" class="btn-delete" title="Hapus">
                     🗑️
                 </button>
             </td>
