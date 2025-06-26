@@ -1,7 +1,12 @@
 :host {
+    background: linear-gradient(to bottom, #f9f9f9, #f0f0f5);
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+    color: #1d1d1f;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    padding: 1rem;
 }
+

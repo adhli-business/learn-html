@@ -1,11 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 // import { RouterOutlet } from '@angular/router';
 // import { Animal } from '../model/animal.interface';
 import { Table } from "./shared/table/table";
 import { Creditur } from '../model/creditur.interface';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { InputComponent } from './shared/inputComponent/inputComponent';
+import { CrediturData } from './services/creditur-data';
+import { PaymentScheduleService } from './services/payment-schedule-service';
+import { NotificationService } from './services/notification-service';
 
 @Component({
   selector: 'app-root',
@@ -17,39 +20,46 @@ import { InputComponent } from './shared/inputComponent/inputComponent';
     ReactiveFormsModule,
     InputComponent
   ],
+  providers: [CrediturData,
+    PaymentScheduleService,
+    NotificationService
+  ],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 
-export class App {
-  parentData: Creditur[] = [
-    {
-      "name": "Dr. Levi Russel",
-      "age": 96,
-      "job": "Direct Data Producer"
-    },
-    {
-      "name": "Jimmy Gusikowski",
-      "age": 59,
-      "job": "Chief Quality Supervisor"
-    },
-    {
-      "name": "Mandy Hartmann II",
-      "age": 9,
-      "job": "Senior Response Assistant"
-    }
-  ]
+export class App implements OnInit {
+  parentData: Creditur[] = [];
+  constructor(
+    private getCrediturDataService: CrediturData,
+    private scheduleService: PaymentScheduleService
+  ) { }
 
-  onFormSubmit(data: any) {
-    this.parentData.push(data)
+  ngOnInit(): void {
+    this.parentData = this.getCrediturDataService.getData()
+    console.log('Data dari DI: ', this.parentData)
   }
+
+  onFormSubmit(newKreditur: Omit<Creditur, 'dueDate'>): void {
+    this.getCrediturDataService.addData(newKreditur);
+    this.parentData = this.getCrediturDataService.getData();
+  }
+
 
   onHapus(index: number) {
-    this.parentData.splice(index, 1);
-    // Untuk trigger re-render karena Angular deteksi array referensial
-    this.parentData = [...this.parentData];
+    this.getCrediturDataService.deleteData(index)
+    this.parentData = this.getCrediturDataService.getData();
   }
+
+  onDueClicked(item: Creditur): void {
+    alert(`🔔 Tagihan untuk ${item.name}
+Tanggal Pengajuan: ${item.tanggalPengajuan.toDateString()}
+Jatuh Tempo: ${item.dueDate.toDateString()}`);
+  }
+
 }
+
+
 
 // pesanDariAnak: string = '';
 
